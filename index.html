@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andreea Dogaru's Homepage</title>
+<link href="css/about.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style>
+</head>
+
+<body alink = "#282727" vlink = "#9b9b9b" link = "#9b9b9b">
+<!-- Header content -->
+<header>
+  <div class="profilePhoto"> 
+    <!-- Profile photo --> 
+    <img src="images/profile_pic.png" alt="sample" width="259"> </div>
+  <!-- Identity details -->
+  <section class="profileHeader">
+    <h1>Andreea Dogaru</h1>
+    <h3>PhD Candidate</h3>
+    <hr>
+    <p>I am a researcher in the <a href="https://twitter.com/cogcovi" target="_blank">
+        Cognitive Computer Vision Lab</a> within the <a href="https://www.lgdv.tf.fau.de/" target="_blank">
+        Chair of Visual Computing</a> at <a href="https://www.fau.de/" target="_blank"> 
+        Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)</a> under the supervision of <a href="https://eggerbernhard.ch/" target="_blank">
+        Prof. Dr. Bernhard Egger</a>. 
+        <br> My research interests are within Computer Vision and Computer Graphics fields, with a focus on Neural Scene Representations, 3D Reconstruction, and Shape Modelling.
+	<br>
+    </p>
+  </section>
+  <!-- Links to Social network accounts -->
+  <aside class="socialNetworkNavBar">
+	   <div class="socialNetworkNav"> 
+      <!-- Add a Anchor tag with nested img tag here --> 
+		   <a href="mailto:andreea.dogaru@skoltech.ru">
+      <img src="images/mail.png"  alt="sample" width="30" ></a> </div>
+      <div class="socialNetworkNav">
+      <!-- Add a Anchor tag with nested img tag here --> 
+		<a href="https://github.com/AndreeaDogaru" target="_blank">
+      <img src="images/github.png" alt="sample" width="30"></a>  </div>
+    <div class="socialNetworkNav"> 
+		<a href="https://scholar.google.com/citations?user=HF1pWaAAAAAJ&hl=en" target="_blank">
+      <!-- Add a Anchor tag with nested img tag here --> 
+      <img src="images/gscholar.png"  alt="sample" width="30"></a>  </div>
+	  	  <div class="socialNetworkNav">
+      <!-- Add a Anchor tag with nested img tag here --> 
+		<a href="https://twitter.com/andreead_a" target="_blank">
+      <img src="images/twitter.png" alt="sample" width="30"></a>  </div>
+
+	  <div class="socialNetworkNav">
+		 <a href="https://www.linkedin.com/in/andreea-dogaru" target="_blank">
+			 <img src="images/linkedin.png"  alt="sample" width="30"> </a></div>
+  </aside>
+</header>
+<!-- content -->
+<section class="mainContent"> 
+  <!-- Contact details -->
+  
+  <!-- Previous experience details -->
+  
+  <section class="section2">
+  <h2 class="sectionTitle">Publications</h2>
+    <hr class="sectionTitleRule">
+    <hr class="sectionTitleRule2">
+
+    <!-- VolSDF  -->
+    <div class="sectionContent">
+        <video width="40%" playsinline="" autoplay="" loop="" preload="" muted=""> <source src="images/surface_bounds.mp4" type="video/mp4"> </video>
+        </div>
+        <section class="section2Content">
+            <h2 class="sectionContentTitle"> Sphere-Guided Training of Neural Implicit Surfaces </h2>
+            <h3 class="sectionContentSubTitle"> 
+                <i>Andreea Dogaru</i>, 
+                <a href="https://scholar.google.com/citations?user=K39yTK0AAAAJ&hl=en" target="_blank">Andrei-Timotei Ardelean</a>, 
+                <a href="https://scholar.google.com/citations?user=aJyxXoMAAAAJ&hl=en" target="_blank">Savva Ignatyev</a>, 
+                <a href="https://scholar.google.com/citations?user=pCRdcOwAAAAJ&hl=en" target="_blank">Evgeny Burnaev</a>,
+                <a href="https://scholar.google.com/citations?user=wyF-PxIAAAAJ&hl=en" target="_blank">Egor Zakharov</a>
+            </h3>
+            </em></h3>
+        </section>
+        <aside class="externalResourcesNav"> 
+        
+            <div class="dropdown"><span></span><a href="https://andreeadogaru.github.io/SurfaceBounds/" target="_blank">Project Page</a></div>
+            <div class="dropdown"> <span>Abstract</span>
+            <div class="dropdown-content">
+                <p style="text-align:left;"> In recent years, surface modeling via neural implicit functions has become one of the main techniques for multi-view 3D reconstruction. However, the state-of-the-art methods rely on the implicit functions to model an entire volume of the scene, which leads to reduced reconstruction fidelity in the areas with thin objects or high-frequency details. To address that, we present a method for jointly training neural implicit surfaces alongside an auxiliary explicit shape representation, which acts as surface guide. In our approach, this representation encapsulates the surface region of the scene and enables us to boost the efficiency of the implicit function training by only modeling the volume in that region. We propose using a set of learnable spherical primitives as a learnable surface guidance since they can be efficiently trained alongside the neural surface function using its gradients. Our training pipeline consists of iterative updates of the spheres' centers using the gradients of the implicit function and then fine-tuning the latter to the updated surface region of the scene. We show that such modification to the training procedure can be plugged into several popular implicit reconstruction methods, improving the quality of the results over multiple 3D reconstruction benchmarks.</p>
+            </div>
+            </div>
+            <div class="dropdown"><span></span><a href="" target="_blank">Paper</a></div>
+        </aside>
+        
+        <br><br>
+	  
+<!-- Replicate the above Div block to add more title and company details --> 
+	</section>
+  <hr>
+  
+</section>
+<footer>
+  <p class="footerDisclaimer">Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.<br>
+    Icons included in the page are from <a href="https://www.flaticon.com/authors/pixel-perfect" target="_blank">Flaticon</a>.<span></span></p>
+  <p class="footerNote"></p>
+</footer>
+</body>
+</html>
