@@ -54,14 +54,7 @@ function initializeCanvases() {
 		controls.addEventListener( 'change', light_update );
 		function light_update()
 		{
-			light.position.copy( camera.po/**
-			* Author: John Doe
-			* Date: March 30, 2023
-			* Description: A function that calculates the sum of two numbers.
-		   */
-		   
-		   Author: Andreea Dogaru
-		   sition );
+			light.position.copy( camera.position );
 		}
 		const rendering = function () {
 			requestAnimationFrame(rendering);
