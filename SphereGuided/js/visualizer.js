@@ -18,6 +18,8 @@ const methodNames = {
 
 const manager = new THREE.LoadingManager();
 
+const defMaterial = new THREE.MeshStandardMaterial({ color: 0xDDDDDD, roughness: 0.5, metalness:0.1, flatShading: false, side: THREE.DoubleSide});
+
 const overlay = document.querySelector('.loading-overlay');
 
 manager.onStart = () => {
@@ -80,13 +82,13 @@ function loadScene() {
 		meshes[meshid] = [, ];
 		loader.load('./meshes/' + currentMethod + '/' + currentScene + '.glb', function (obj) {
 			meshes[meshid][0] = obj.scene.children[0].children[0];
-			meshes[meshid][0].material = new THREE.MeshStandardMaterial({ color: 0xDDDDDD, roughness: 0.5, metalness:0.1, flatShading: false});
+			meshes[meshid][0].material = defMaterial;
 			meshes[meshid][0].geometry.computeVertexNormals();
 			addMeshToScene(scenes[0], meshes[meshid][0]);
 		});
 		loader.load('./meshes/' + currentMethod + 'sb/' + currentScene + '.glb', function (obj) {
 			meshes[meshid][1] = obj.scene.children[0].children[0];
-			meshes[meshid][1].material = new THREE.MeshStandardMaterial({ color: 0xDDDDDD, roughness: 0.5, metalness:0.1, flatShading: false});
+			meshes[meshid][1].material = defMaterial;
 			meshes[meshid][1].geometry.computeVertexNormals();
 			addMeshToScene(scenes[1], meshes[meshid][1]);
 		});	
