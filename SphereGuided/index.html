@@ -98,6 +98,9 @@
                 <h2>Spheres Optimization</h2>
                 <hr style="margin-top:0px">
             </div>
+            <p class="text-justify">
+                We jointly optimize a sphere cloud toward the current surface estimated by the implicit function. This coarse, explicit representation is used to bound the volume in which the implicit function is evaluated, guiding the ray-sampling and ray-marching procedures used during training. The sphere radius decreases over time, producing a tighter volume around the object's surface as the implicit surface becomes more accurate.
+            </p>
         </div>
 
         <div class="row">
