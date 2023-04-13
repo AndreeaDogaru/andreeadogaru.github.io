@@ -1,9 +1,7 @@
 import * as THREE from 'three';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-const margin = 40;
 const camera = new THREE.PerspectiveCamera(75, 1, 0.01, 100);
 camera.position.z = 1.5;
 
@@ -45,10 +43,11 @@ function initializeCanvases() {
 		
 		const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
 		renderer.setPixelRatio( window.devicePixelRatio );
-		renderer.setClearColor("0xffffff", 1);
-		renderer.setSize(canvas.parentNode.clientWidth - margin, canvas.parentNode.clientWidth - margin);
+		renderer.setClearColor(0xffffff, 1);
+		renderer.setSize(canvas.clientWidth, canvas.clientWidth);
 		window.addEventListener('resize', () => {
-			renderer.setSize(canvas.parentNode.clientWidth - margin, canvas.parentNode.clientWidth - margin);
+			console.log(canvas.clientWidth);
+			renderer.setSize(canvas.clientWidth, canvas.clientWidth);
 			camera.aspect = 1; 
 			camera.updateProjectionMatrix(); 
 		})
