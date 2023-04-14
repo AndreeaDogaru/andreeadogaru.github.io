@@ -26,7 +26,7 @@
         body {
             background: #ffffff no-repeat fixed top left;
             font-family: 'Open Sans', sans-serif;
-        }     
+        }
     </style>
 
 </head>
@@ -40,12 +40,19 @@
                     <h2 style="font-size:30px;">Sphere-Guided Training of Neural Implicit Surfaces</h2>
                     <h4 style="color:#6e6e6e;"> CVPR 2023</h4>
                     <hr>
-                    <h6><a href="https://andreeadogaru.github.io/" target="_blank">Andreea Dogaru</a><sup>1,2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://reality.tf.fau.de/staff/t.ardelean.html" target="_blank">Andrei-Timotei Ardelean</a><sup>1,2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://scholar.google.com/citations?user=aJyxXoMAAAAJ&hl=en" target="_blank">Savva Ignatyev</a><sup>1</sup></h6>
-                        <h6>
-                        <a href="https://scholar.google.com/citations?user=wyF-PxIAAAAJ&hl=en" target="_blank">Egor Zakharov</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="https://faculty.skoltech.ru/people/evgenyburnaev" target="_blank">Evgeny Burnaev</a><sup>1,3</sup></h6>
+                    <h6><a href="https://andreeadogaru.github.io/" target="_blank">Andreea
+                            Dogaru</a><sup>1,2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://reality.tf.fau.de/staff/t.ardelean.html" target="_blank">Andrei-Timotei
+                            Ardelean</a><sup>1,2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://scholar.google.com/citations?user=aJyxXoMAAAAJ&hl=en" target="_blank">Savva
+                            Ignatyev</a><sup>1</sup>
+                    </h6>
+                    <h6>
+                        <a href="https://scholar.google.com/citations?user=wyF-PxIAAAAJ&hl=en" target="_blank">Egor
+                            Zakharov</a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://faculty.skoltech.ru/people/evgenyburnaev" target="_blank">Evgeny
+                            Burnaev</a><sup>1,3</sup>
+                    </h6>
                     <p><sup>1</sup>Skolkovo Institute of Science and Technology&nbsp;&nbsp;&nbsp;&nbsp;
                         <sup>2</sup>Friedrich-Alexander-Universität Erlangen-Nürnberg
                         <br>
@@ -55,8 +62,8 @@
 
                     <div class="row justify-content-center">
                         <div class="column">
-                            <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2209.15511"
-                                    role="button" target="_blank">
+                            <p class="mb-5"><a class="btn btn-large btn-light"
+                                    href="https://arxiv.org/pdf/2209.15511.pdf" role="button" target="_blank">
                                     <i class="fa fa-file"></i> Paper</a></p>
                         </div>
                         <div class="column">
@@ -84,7 +91,16 @@
                 <div><img class="img-fluid" src="images/teaser.jpg" alt=""></div>
                 <br>
                 <p class="text-justify">
-                    In recent years, neural distance functions trained via volumetric ray marching have been widely adopted for multi-view 3D reconstruction. These methods, however, apply the ray marching procedure for the entire scene volume, leading to reduced sampling efficiency and, as a result, lower reconstruction quality in the areas of high-frequency details. In this work, we address this problem via joint training of the implicit function and our new coarse sphere-based surface reconstruction. We use the coarse representation to efficiently exclude the empty volume of the scene from the volumetric ray marching procedure without additional forward passes of the neural surface network, which leads to an increased fidelity of the reconstructions compared to the base systems. We evaluate our approach by incorporating it into the training procedures of several implicit surface modeling methods and observe uniform improvements across both synthetic and real-world datasets.
+                    In recent years, neural distance functions trained via volumetric ray marching have been widely
+                    adopted for multi-view 3D reconstruction. These methods, however, apply the ray marching procedure
+                    for the entire scene volume, leading to reduced sampling efficiency and, as a result, lower
+                    reconstruction quality in the areas of high-frequency details. In this work, we address this problem
+                    via joint training of the implicit function and our new coarse sphere-based surface reconstruction.
+                    We use the coarse representation to efficiently exclude the empty volume of the scene from the
+                    volumetric ray marching procedure without additional forward passes of the neural surface network,
+                    which leads to an increased fidelity of the reconstructions compared to the base systems. We
+                    evaluate our approach by incorporating it into the training procedures of several implicit surface
+                    modeling methods and observe uniform improvements across both synthetic and real-world datasets.
                 </p>
             </div>
         </div>
@@ -100,7 +116,11 @@
                 <hr style="margin-top:0px">
             </div>
             <p class="text-justify">
-                We jointly optimize a sphere cloud toward the current surface estimated by the implicit function. This coarse, explicit representation is used to bound the volume in which the implicit function is evaluated, guiding the ray-sampling and ray-marching procedures used during training. The sphere radius decreases over time, producing a tighter volume around the object's surface as the implicit surface becomes more accurate.
+                We jointly optimize a sphere cloud toward the current surface estimated by the implicit function. This
+                coarse, explicit representation is used to bound the volume in which the implicit function is evaluated,
+                guiding the ray-sampling and ray-marching procedures used during training. The sphere radius decreases
+                over time, producing a tighter volume around the object's surface as the implicit surface becomes more
+                accurate.
             </p>
         </div>
 
@@ -128,54 +148,75 @@
             </div>
         </div>
 
-         <div class="row">
-            <div class="col text-center">
-                <h3 id="method_h">Method</h3>
-            </div>
-        </div>
         <div class="row">
             <div class="col text-center">
-                <h3>Baseline</h3>
+                <h3>NeuS</h3>
+                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                    <source src="images/neus.mp4" type="video/mp4">
+                </video>
             </div>
             <div class="col text-center">
-                <h3>Ours</h3>
+                <h3>NeuralWarp</h3>
+                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                    <source src="images/nwarp.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
 
-        <section id="loading-screen">
-
-            <div id="loader"></div>
-        
-        </section>
-
-        <div class="row" id="vis">
-            <div class="col text-center">
-                <canvas id="canvas_nerf1"> </canvas>
-                <!-- <img class="img-fluid" src="images.png" alt=""> -->
-            </div>
-            <div class="col text-center">
-                <canvas id="canvas_nerf2"> </canvas>
-            </div>
-            <div class="loading-overlay">
-                <div class="loading-spinner"></div>
-                <div class="loading-progress"></div>
-            </div>   
-        </div>       
-        <div class="row">
-            <div class="col text-center d-flex align-items-center justify-content-center">
-                <span style="font-size: 2em;">Base method&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <button class="btn btn-large btn-light" id="bton_neus">NeuS</button>
-                <button class="btn btn-large btn-light" id="bton_nwarp">NeuralWarp</button>
-            </div>
-        </div>
         <br>
-        <div class="row">
-            <div class="col text-center d-flex align-items-center justify-content-center">
-                <span style="font-size: 2em;">Scene</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <button class="btn btn-large btn-light" id="bton_materials">Materials</button>
-                <button class="btn btn-large btn-light" id="bton_lego">Lego</button>
-                <button class="btn btn-large btn-light" id="bton_ficus">Ficus</button>
-                <button class="btn btn-large btn-light" id="bton_ship">Ship</button>
+
+        <div class="container" style="background-color: #f6f6f6">
+            <div class="row">
+                <div class="col text-center">
+                    <h3 id="method_h">Method</h3>
+                </div>
+            </div>
+
+            <section id="loading-screen">
+
+                <div id="loader"></div>
+
+            </section>
+
+            <div class="row" id="vis">
+                <div class="col text-center">
+                    <canvas id="canvas_nerf1"> </canvas>
+                    <!-- <img class="img-fluid" src="images.png" alt=""> -->
+                </div>
+                <div class="col text-center">
+                    <canvas id="canvas_nerf2"> </canvas>
+                </div>
+                <div class="loading-overlay">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    <h3>Baseline</h3>
+                </div>
+                <div class="col text-center">
+                    <h3>Ours</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center d-flex align-items-center justify-content-center">
+                    <span style="font-size: 2em;">Base method&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <button class="btn btn-large btn-light" id="bton_neus">NeuS</button>
+                    <button class="btn btn-large btn-light" id="bton_nwarp">NeuralWarp</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col text-center d-flex align-items-center justify-content-center">
+                    <span style="font-size: 2em;">Scene</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <button class="btn btn-large btn-light" id="bton_materials">Materials</button>
+                    <button class="btn btn-large btn-light" id="bton_lego">Lego</button>
+                    <button class="btn btn-large btn-light" id="bton_ficus">Ficus</button>
+                    <button class="btn btn-large btn-light" id="bton_ship">Ship</button>
+                </div>
             </div>
         </div>
     </div>
