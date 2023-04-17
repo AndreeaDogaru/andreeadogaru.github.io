@@ -126,12 +126,12 @@
 
         <div class="row">
             <div class="col text-center">
-                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                <video id="video1" width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
                     <source src="images/lego/lego.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="col text-center">
-                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                <video id="video2" width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
                     <source src="images/ficus/ficus.mp4" type="video/mp4">
                 </video>
             </div>
@@ -154,13 +154,13 @@
         <div class="row">
             <div class="col text-center">
                 <h3>NeuS</h3>
-                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                <video id="video3" width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
                     <source src="images/neus.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="col text-center">
                 <h3>NeuralWarp</h3>
-                <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                <video id="video4" width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
                     <source src="images/nwarp.mp4" type="video/mp4">
                 </video>
             </div>
@@ -250,35 +250,5 @@
     Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the <a
         href="https://lioryariv.github.io/idr/" target="_blank">website template</a>.
 </footer>
-
-<script type="text/javascript">
-    // Get all videos.
-    var videos = document.querySelectorAll('video');
-
-    // Create a promise to wait all videos to be loaded at the same time.
-    // When all of the videos are ready, call resolve().
-    var promise = new Promise(function (resolve) {
-        var loaded = 0;
-
-        videos.forEach(function (v) {
-            v.addEventListener('loadedmetadata', function () {
-                loaded++;
-
-                if (loaded === videos.length) {
-                    resolve();
-                }
-            });
-        });
-    });
-
-    // Play all videos one by one only when all videos are ready to be played.
-    promise.then(function () {
-        videos.forEach(function (v) {
-            v.play();
-        });
-    });
-</script>
-
 </body>
-
 </html>

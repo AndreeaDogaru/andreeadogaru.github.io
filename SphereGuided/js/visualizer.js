@@ -123,7 +123,15 @@ document.getElementById("bton_nwarp").addEventListener("click", function() {
 	loadScene();
 });
 
+function startAllVideos() {
+	var videos = document.getElementsByTagName("video");
+	for (var i = 0; i < videos.length; i++) {
+	  videos[i].play();
+	}
+}
+
 window.onload = function() {
+	startAllVideos();
 	initializeCanvases();
 	loadScene();
 }
