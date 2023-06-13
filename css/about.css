@@ -561,3 +561,11 @@ footer .footerNote {
 	font-family: sans-serif;
 }
 }
+
+.one {
+    position: relative;
+}
+
+.two {
+	position: absolute;
+}
