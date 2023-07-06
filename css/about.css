@@ -145,6 +145,7 @@ header .socialNetworkNavBar .socialNetworkNav img:hover {
     background-color: rgba(190,190,190,1.00);
     cursor: pointer;
     color: rgba(255,255,255,1.00);
+	margin-bottom: 4px;
 }
 
 .mainContent .externalResourcesNav .dropdown:hover {
