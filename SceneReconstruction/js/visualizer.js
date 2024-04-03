@@ -16,7 +16,6 @@ manager.onStart = () => {
 manager.onLoad = () => {
 	overlay.style.display = 'none';
 };
-var camera = 5;
 
 const canvas = document.getElementById('canvas_scene');
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
@@ -27,6 +26,7 @@ renderer.physicallyCorrectLights = true;
 renderer.outputEncoding =  THREE.sRGBEncoding;
 
 async function changeScene(currentScene) {
+	const meshes = {}
 	const image = document.getElementById('scene_img');
 	image.src = "scenes/" + currentScene + "/input.png"
 	
@@ -40,7 +40,7 @@ async function changeScene(currentScene) {
 	const specs = await (await fetch('scenes/' + currentScene + '/specs.json')).json();
 	const aspect = specs['W'] / specs['H'];
 	renderer.setSize(canvas.clientWidth, canvas.clientWidth / aspect);
-	camera = new PinholeCamera(
+	const camera = new PinholeCamera(
 		specs['K'],
 		specs['W'],
 		specs['H'],
@@ -69,9 +69,24 @@ async function changeScene(currentScene) {
 				mesh.position.copy( trans )
 
 				addMeshToScene(scene, mesh);
+				meshes[`Object ${parseInt(path.split('_')[0]) + 1}`] = mesh
 			});
 		}
 	)
+
+	const loader = new PLYLoader(manager)
+	loader.load(
+		'scenes/' + currentScene + '/fitted_background.ply',
+		function (geometry) {
+			geometry.computeVertexNormals()
+			const mesh = new THREE.Mesh(geometry, defMaterial)
+			mesh.scale.copy( scale )
+			mesh.position.copy( trans )
+			addMeshToScene(scene, mesh);
+			meshes['Background'] = mesh
+		}
+	)
+
 	const controls = new TrackballControls(camera, renderer.domElement);
 	controls.target.x = trans.x
 	controls.target.y = trans.y
@@ -83,17 +98,34 @@ async function changeScene(currentScene) {
 	}
 	rendering();
 
-	const loader = new PLYLoader()
-	loader.load(
-		'scenes/' + currentScene + '/fitted_background.ply',
-		function (geometry) {
-			geometry.computeVertexNormals()
-			const mesh = new THREE.Mesh(geometry, defMaterial)
-			mesh.scale.copy( scale )
-			mesh.position.copy( trans )
-			addMeshToScene(scene, mesh);
+	manager.onLoad = () => {
+		const buttons = document.getElementById('comp_buttons'); 
+		buttons.replaceChildren();
+
+		// const keys = Object.keys(meshes);
+		// keys.sort();
+		// keys.reverse();
+		// for (const component of keys) {
+		for (let component in meshes) {
+			function onButtonClick() {
+				for (let comps in meshes) {
+					if (comps === component) {
+						meshes[comps].visible = true
+					}
+					else {
+						meshes[comps].visible = false
+					}
+				}
+			}
+
+			const newButton = document.createElement('button');
+			newButton.textContent = component;
+			newButton.className = 'btn btn-large btn-light'
+			newButton.addEventListener('click', onButtonClick)
+			buttons.appendChild(newButton);
 		}
-	)
+		overlay.style.display = 'none';
+	};
 }
 
 function addMeshToScene(scene, mesh) {

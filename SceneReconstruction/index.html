@@ -80,8 +80,6 @@
             <div class="col-12 text-center">
                 <h3>Abstract</h3>
                 <hr style="margin-top:0px">
-                <div><img class="img-fluid" src="images/teaser.png" alt=""></div>
-                <br>
                 <p class="text-justify">
                     Single-view 3D reconstruction is currently approached from two dominant
                     perspectives: reconstruction of scenes with limited diversity using 3D data supervision or
@@ -97,6 +95,8 @@
                     whole system. This enables the pipeline to naturally improve as future methods can
                     replace the individual modules.
                 </p>
+                <div><img class="img-fluid" src="images/teaser.png" alt=""></div>
+                <br>
             </div>
         </div>
     </div>
@@ -134,10 +134,6 @@
 
         <br>
 
-        <div class="col text-justify">
-            <h4 style="color:grey;">Interactive visualization</h4>
-        </div>
-
         <section id="loading-screen">
 
             <div id="loader"></div>
@@ -149,7 +145,7 @@
                 <h3>Input image</h3>
             </div>
             <div class="col text-center">
-                <h3>Reconstructed scene</h3>
+                <h3>Reconstructed scene <span style="color:grey;">(interactive)</span></h3>
             </div>
         </div>
 
@@ -163,6 +159,17 @@
             <div class="loading-overlay">
                 <div class="loading-spinner"></div>
                 <div class="loading-progress"></div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col text-center d-flex align-items-center justify-content-center">
+                <span style="font-size: 2em;">Components</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <div id="comp_buttons">
+
+                </div>
             </div>
         </div>
 
