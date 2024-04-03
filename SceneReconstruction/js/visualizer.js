@@ -25,6 +25,14 @@ renderer.setClearColor(0xffffff, 1);
 renderer.physicallyCorrectLights = true;
 renderer.outputEncoding =  THREE.sRGBEncoding;
 
+function createCompButton(parent, name, onClick) {
+	const newButton = document.createElement('button');
+	newButton.textContent = name;
+	newButton.className = 'btn btn-large btn-light'
+	newButton.addEventListener('click', onClick)
+	parent.appendChild(newButton);
+}
+
 async function changeScene(currentScene) {
 	const meshes = {}
 	const image = document.getElementById('scene_img');
@@ -54,7 +62,6 @@ async function changeScene(currentScene) {
 	light.position.copy( camera.position );
 	
 	window.addEventListener('resize', () => {
-		console.log(canvas.clientWidth);
 		renderer.setSize(canvas.clientWidth, canvas.clientWidth / aspect);
 		camera.updateProjectionMatrix(); 
 	})
@@ -69,7 +76,7 @@ async function changeScene(currentScene) {
 				mesh.position.copy( trans )
 
 				addMeshToScene(scene, mesh);
-				meshes[`Object ${parseInt(path.split('_')[0]) + 1}`] = mesh
+				meshes[parseInt(path.split('_')[0]) + 1] = mesh
 			});
 		}
 	)
@@ -102,14 +109,22 @@ async function changeScene(currentScene) {
 		const buttons = document.getElementById('comp_buttons'); 
 		buttons.replaceChildren();
 
-		// const keys = Object.keys(meshes);
-		// keys.sort();
-		// keys.reverse();
-		// for (const component of keys) {
-		for (let component in meshes) {
+		function onBgClick() {
+			for (let comps in meshes) {
+				if (comps === 'Background') {
+					meshes[comps].visible = true
+				}
+				else {
+					meshes[comps].visible = false
+				}
+			}
+		}
+		createCompButton(buttons, 'Background', onBgClick)
+
+		for (let component = specs['objects'].length; component >= Math.max(specs['objects'].length - 5, 1); component--) {
 			function onButtonClick() {
 				for (let comps in meshes) {
-					if (comps === component) {
+					if (comps == component) {
 						meshes[comps].visible = true
 					}
 					else {
@@ -117,13 +132,16 @@ async function changeScene(currentScene) {
 					}
 				}
 			}
-
-			const newButton = document.createElement('button');
-			newButton.textContent = component;
-			newButton.className = 'btn btn-large btn-light'
-			newButton.addEventListener('click', onButtonClick)
-			buttons.appendChild(newButton);
+			createCompButton(buttons, specs['objects'].length - component + 1, onButtonClick)
 		}
+
+		function onAllClick() {
+			for (let comps in meshes) {
+					meshes[comps].visible = true
+			}
+		}
+		createCompButton(buttons, 'All', onAllClick)
+
 		overlay.style.display = 'none';
 	};
 }
