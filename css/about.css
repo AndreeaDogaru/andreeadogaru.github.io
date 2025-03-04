@@ -570,3 +570,30 @@ footer .footerNote {
 .two {
 	position: absolute;
 }
+
+.hover-name {
+	position: relative;
+	cursor: pointer;
+  }
+  
+  .hover-name::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 120%;
+	width: 220px;
+	height: 200px;
+	background-image: url('../images/wedding.jpg');
+	background-size: cover;
+	background-position: center;
+	border-radius: 8px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: opacity 0.3s ease-in-out;
+	pointer-events: none;
+  }
+  
+  .hover-name:hover::after {
+	opacity: 1;
+  }
